@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Control Flow</title>
+</head>
+
+<body>
+    <h1>Belajar Control FLow</h1>
+</body>
+<script>
+    const nilaiUjian = 50
+
+    if (nilaiUjian > 90) {
+        console.log("Super Hebat!")
+    } else if (nilaiUjian >= 60) {
+        console.log("Lulus Ujian")
+    } else {
+        console.log("Coba lagi tahun depan")
+    }
+
+    // Ternary Operator
+    const kelulusan = nilaiUjian > 75 ? "Lulus" : "Tidak Lulus"
+    console.log(kelulusan)
+
+    //Switch Case
+    const pet = "dog";
+    switch (pet) {
+        case "lizard":
+            console.log("I own a lizard");
+            break;
+        case "dog":
+            console.log("I own a dog");
+            break;
+        case "cat":
+            console.log("I own a cat");
+            break;
+        default:
+            console.log("I don't own a pet");
+            break;
+    }
+
+    //Nullish Coalescing
+    const mahasiswa = {
+        nama: 'budi',
+        umur: 23,
+    };
+
+    const nilaiMahasiswa = mahasiswa.nilai ?? 0
+    console.log(nilaiMahasiswa)
+
+    let result =  undefined ?? "Hello";
+    console.log(result); //Hello
+
+    result =  null ?? true;
+    console.log(result); //True
+
+    result = false ?? true;
+    console.log(result); //False
+</script>
+
+</html>
