@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List OOP</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        li.selesai {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        button {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List OOP</h1>
+    <input type="text" name="" id="inputTodo" placeholder="Tambah tugas...">
+    <button onclick="tambahTodo()">Tambah</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        class Todo {
+            constructor(judul) {
+                this.judul = judul;
+                this.selesai = false;
+            }
+
+            tandaiSelesai() {
+                this.selesai = true;
+            }
+        }
+
+        class TodoList {
+            constructor() {
+                this.daftar = [];
+            }
+
+            tambah(todo) {
+                this.daftar.push(todo);
+                this.render();
+            }
+
+            tandaiSelesai(index) {
+                this.daftar[index].tandaiSelesai();
+                this.render();
+            }
+
+            hapus(index) {
+                this.daftar.splice(index, 1);
+                this.render();
+            }
+
+            render() {
+                const ul = document.getElementById('todoList');
+                ul.innerHTML = '';
+                this.daftar.forEach((todo, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = todo.judul;
+                    if (todo.selesai) li.classList.add('selesai');
+
+                    const selesaiBtn = document.createElement('button')
+                    selesaiBtn.textContent = 'v';
+                    selesaiBtn.onclick = () => this.tandaiSelesai(index);
+
+                    const hapusBtn = document.createElement('button');
+                    hapusBtn.textContent = 'del';
+                    hapusBtn.onclick = () => this.hapus(index);
+
+                    li.appendChild(selesaiBtn);
+                    li.appendChild(hapusBtn);
+                    ul.appendChild(li);
+                });
+            }
+        }
+
+        const todoList = new TodoList();
+
+        function tambahTodo() {
+            const input = document.getElementById('inputTodo');
+            const judul = input.value.trim();
+            if (judul != '') {
+                const todo = new Todo(judul);
+                todoList.tambah(todo);
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

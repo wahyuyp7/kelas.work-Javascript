@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Data Structure</title>
+</head>
+
+<body>
+    <script>
+        // Array
+        let angka_genap = [2, 4, 6, 8, 20, 12]
+        console.log(angka_genap[0])
+        console.log(angka_genap[2])
+
+        // Object
+        let person = {
+            nama: "Dandhi",
+            umur: 30
+        }
+
+        console.log(person.nama) //Dandhi
+        console.log(person['umur']) //30
+
+        // Set
+        const myArray = [1, 2, 3, 4, 5, 5, 3, 5, 2]
+        const mySet = new Set(myArray)
+        console.log(mySet) // set [1, 2, 3, 4, 5]
+        console.log(myArray) //  [1, 2, 3, 4, 5, 5, 3, 5, 2] 
+
+        // Map
+        const mobil = new Map ()
+        // Menambahkan properti pada Map
+        mobil.set ('merk', 'BMW')
+        mobil.set ('warna', 'Hijau')
+
+        //Melihat value berdasarkan key
+        console.log(mobil.get('merk')) // BMW
+
+        // Menghapus value berdasarkan key 
+        mobil.delete('color')
+
+        // Cek apakah value tersebut ada
+        mobil.has('transsmission') //false
+    </script>
+</body>
+
+</html>
