@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Inheritance</title>
+</head>
+
+<body>
+    <h1>Pengenalan Class Inheritance</h1>
+</body>
+<script>
+    class Animal {
+        constructor(name, weight) {
+            this.name = name;
+            this.weight = weight;
+        }
+
+        eat() {
+            return `${this.name} is eating!`;
+        }
+
+        sleep() {
+            return `${this.name} is going to sleep!`;
+        }
+
+        wakeUp() {
+            return `${this.name} is waking up!`;
+        }
+    }
+
+    class Gorilla extends Animal {
+        constructor(name, weight) {
+            super(name, weight);
+        }
+        climbTrees() {
+            return `${this.name} is climbing trees!`;
+        }
+
+        poundChest() {
+            return `${this.name} is pounding its chest!`;
+        }
+
+        showPower() {
+            return `${super.eat()} ${this.poundChest()}`;
+        }
+
+        dailyRoutine() {
+            return `${super.wakeUp()} ${this.poundChest()} ${super.eat()} ${super.sleep()}`;
+        }
+    }
+
+    const gorilla = new Gorilla('George', '160kg');
+    console.log(gorilla)
+    console.log(gorilla.poundChest())
+    console.log(gorilla.sleep())
+    console.log(gorilla.showPower())
+    console.log(gorilla.dailyRoutine())
+    console.log(gorilla.eat())
+    const animal = new Animal('Jojo', '50kg');
+    console.log(animal)
+    console.log(animal.eat())
+    console.log(animal.sleep())
+    console.log(animal.wakeUp())
+</script>
+
+</html>

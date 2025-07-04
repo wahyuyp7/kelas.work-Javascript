@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Private Field</title>
+</head>
+
+<body>
+    <h1>Pengenalan Class Private</h1>
+</body>
+<script>
+    class User {
+        constructor(name, email, age) {
+            this._name = name;
+            this._email = email;
+            this._age = age;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(newName) {
+            this._name = newName;
+        }
+    }
+
+    const user = new User('Dandhi', 'dandhi@gmail.com', 30);
+    console.log(user.name);
+    user.name = "Herry"
+    console.log(user.name);
+    // user.email = "dandhi@gmail.com";
+    // console.log(user.email);
+</script>
+
+</html>
